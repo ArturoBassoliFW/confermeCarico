@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🇪🇸 Conferme Carico</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Raleway:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="cssReset.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="variables.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-pale">
+    <header class="bg-pure">
+      <div class="container">
+        <nav>
+          <img
+            src="https://www.freshways.it/resources/logoFreshWays.png"
+            alt="Logo Fresh Ways"
+          />
+          <h1>🇪🇸 Conferme Carico</h1>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="form bg-pure">
+          <form action="fatto.html" method="GET" enctype="multipart/form-data">
+            <h2 class="bold fresh medium">Intestazione</h2>
+            <div>
+              <label for="vettore">Vettore</label>
+              <input
+                type="text"
+                name="vettore"
+                id="vettore"
+                placeholder="Vettore"
+                required
+              />
+            </div>
+            <div>
+              <label for="contatto">Contatto</label>
+              <input
+                type="text"
+                name="contatto"
+                id="contatto"
+                placeholder="Contatto"
+                required
+              />
+            </div>
+            <div>
+              <label for="merce">Tipo di merce</label>
+              <input
+                type="text"
+                name="merce"
+                id="merce"
+                placeholder="Merce"
+                required
+              />
+            </div>
+            <div>
+              <label for="pallet">Num. Pallet</label>
+              <input
+                type="number"
+                name="pallet"
+                id="pallet"
+                placeholder="Num. Pallet"
+                min="1"
+                max="33"
+                step="1"
+              />
+            </div>
+            <div>
+              Tipo Pallet
+              <div>
+                <label for="epal">Epal</label>
+                <input type="radio" name="pallet" id="epal" value="epal" />
+              </div>
+              <div>
+                <label for="uk">UK</label>
+                <input type="radio" name="pallet" id="uk" value="uk" />
+              </div>
+            </div>
+            <div>
+              Scambio Epal
+              <div>
+                <label for="scambio">Sì</label>
+                <input type="checkbox" name="scambio" id="scambio" value="si" />
+              </div>
+            </div>
+            <div>
+              <label for="nolo">Nolo</label>
+              <input
+                type="text"
+                name="nolo"
+                id="nolo"
+                placeholder="Nolo"
+                required
+              />
+            </div>
+            <div>
+              Temperatura
+              <div>
+                <label for="+4°">+4°</label>
+                <input type="radio" name="temperatura" id="4" value="+4°" />
+              </div>
+              <div>
+                <label for="-20°">-20°</label>
+                <input type="radio" name="temperatura" id="20" value="-20°" />
+              </div>
+              <div>
+                <label for="+4/-20°">+4/-20°</label>
+                <input
+                  type="radio"
+                  name="temperatura"
+                  id="420"
+                  value="+4/-20°"
+                />
+              </div>
+              <div>
+                <label for="ambient">Ambient</label>
+                <input
+                  type="radio"
+                  name="temperatura"
+                  id="ambient"
+                  value="ambient"
+                />
+              </div>
+            </div>
+            <h2 class="bold fresh medium">Carico</h2>
+            <div>
+              <label for="destinazioneCarico1">Destinazione</label>
+              <input
+                type="text"
+                name="destinazioneCarico1"
+                id="destinazioneCarico1"
+                placeholder="Destinazione"
+                required
+              />
+            </div>
+            <div>
+              Temperatura
+              <div>
+                <label for="+4°Carico1">+4°</label>
+                <input
+                  type="radio"
+                  name="temperaturaCarico1"
+                  id="4Carico1"
+                  value="+4°"
+                />
+              </div>
+              <div>
+                <label for="-20°Carico1">-20°</label>
+                <input
+                  type="radio"
+                  name="temperaturaCarico1"
+                  id="20Carico1"
+                  value="-20°"
+                />
+              </div>
+              <div>
+                <label for="+4/-20°Carico1">+4/-20°</label>
+                <input
+                  type="radio"
+                  name="temperaturaCarico1"
+                  id="420Carico1"
+                  value="+4/-20°"
+                />
+              </div>
+              <div>
+                <label for="ambientCarico1">Ambient</label>
+                <input
+                  type="radio"
+                  name="temperaturaCarico1"
+                  id="ambientCarico1"
+                  value="ambient"
+                />
+              </div>
+            </div>
+            <div>
+              <label for="dateCarico1">Data</label>
+              <input
+                type="datetime-local"
+                name="dateCarico1"
+                id="dateCarico1"
+                min="2022-09-16"
+              />
+            </div>
+            <h2 class="bold fresh medium">Scarico</h2>
+            <div>
+              <label for="destinazioneScarico1">Destinazione</label>
+              <input
+                type="text"
+                name="destinazioneScarico1"
+                id="destinazioneScarico1"
+                placeholder="Destinazione"
+                required
+              />
+            </div>
+            <div>
+              Temperatura
+              <div>
+                <label for="+4°Scarico1">+4°</label>
+                <input
+                  type="radio"
+                  name="temperaturaScarico1"
+                  id="4Scarico1"
+                  value="+4°"
+                />
+              </div>
+              <div>
+                <label for="-20°Scarico1">-20°</label>
+                <input
+                  type="radio"
+                  name="temperaturaScarico1"
+                  id="20Scarico1"
+                  value="-20°"
+                />
+              </div>
+              <div>
+                <label for="+4/-20°Scarico1">+4/-20°</label>
+                <input
+                  type="radio"
+                  name="temperaturaScarico1"
+                  id="420Scarico1"
+                  value="+4/-20°"
+                />
+              </div>
+              <div>
+                <label for="ambientScarico1">Ambient</label>
+                <input
+                  type="radio"
+                  name="temperaturaScarico1"
+                  id="ambientScarico1"
+                  value="ambient"
+                />
+              </div>
+            </div>
+            <div>
+              <label for="dateScarico1">Data</label>
+              <input
+                type="datetime-local"
+                name="dateScarico1"
+                id="dateScarico1"
+                min="2022-09-16"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
