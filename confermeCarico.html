@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🇪🇸 Conferme Carico</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Raleway:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="cssReset.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="variables.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-pale">
+    <!-- Header -->
+    <header class="bg-pure">
+      <div class="container">
+        <nav>
+          <img
+            src="https://www.freshways.it/resources/logoFreshWays.png"
+            alt="Logo Fresh Ways"
+          />
+          <h1>🇪🇸 Conferme Carico</h1>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+      <div class="container">
+        <div class="form bg-pure">
+          <!-- Form -->
+          <form action="/action_page.php" method="get">
+            <!-- Dettagli ordine -->
+            <h2 class="bold fresh">Ordine</h2>
+            <div class="field">
+              <label for="vettore">Vettore</label>
+              <input type="text" list="vettori" name="vettore" id="vettore" />
+              <datalist id="vettori">
+                <option value="Edge"></option>
+                <option value="Firefox"></option>
+                <option value="Chrome"></option>
+                <option value="Opera"></option>
+                <option value="Safari"></option>
+              </datalist>
+            </div>
+            <div class="field">
+              <label for="tipoCamion">Tipo Camion</label>
+              <div class="radio">
+                <input
+                  type="radio"
+                  id="frigo"
+                  name="tipoCamion"
+                  value="frigo"
+                />
+                <label for="frigo">frigo</label><br />
+              </div>
+              <div class="radio">
+                <input
+                  type="radio"
+                  id="fresco"
+                  name="tipoCamion"
+                  value="fresco"
+                />
+                <label for="fresco">fresco</label><br />
+              </div>
+              <div class="radio">
+                <input
+                  type="radio"
+                  id="ambient"
+                  name="tipoCamion"
+                  value="ambient"
+                />
+                <label for="ambient">ambient</label>
+              </div>
+            </div>
+            <div class="field">
+              <label for="merce">Tipo Merce</label>
+              <input type="text" list="merci" name="merce" id="merce" />
+              <datalist id="merci">
+                <option value="Merce 1"></option>
+                <option value="Merce 2"></option>
+                <option value="Merce 3"></option>
+                <option value="Merce 4"></option>
+                <option value="Merce 5"></option>
+              </datalist>
+            </div>
+            <div class="field">
+              <label for="numPallet">Numero Pallet</label>
+              <input
+                type="number"
+                id="numPallet"
+                name="numPallet"
+                min="1"
+                max="33"
+              />
+            </div>
+            <div class="field">
+              <label for="tipoPallet">Tipo Plt</label>
+              <div class="radio">
+                <input type="radio" id="epal" name="tipoPallet" value="epal" />
+                <label for="epal">Epal</label><br />
+              </div>
+              <div class="radio">
+                <input type="radio" id="uk" name="tipoPallet" value="uk" />
+                <label for="uk">UK</label><br />
+              </div>
+            </div>
+            <div class="field">
+              <label for="carico">Carico per conto di</label>
+              <input type="text" list="carichi" name="carico" id="carico" />
+              <datalist id="carichi">
+                <option value="Carico 1"></option>
+                <option value="Carico 2"></option>
+                <option value="Carico 3"></option>
+                <option value="Carico 4"></option>
+                <option value="Carico 5"></option>
+              </datalist>
+            </div>
+            <div class="field">
+              <label for="nolo">Nolo</label>
+              <input type="number" id="nolo" name="nolo" min="1" max="33" />
+            </div>
+            <div class="field">
+              <label for="fatturazione">Da fatturare a</label>
+              <input
+                type="text"
+                list="fatturazioni"
+                name="fatturazione"
+                id="fatturazione"
+              />
+              <datalist id="fatturazioni">
+                <option value="fatturazione 1"></option>
+                <option value="fatturazione 2"></option>
+                <option value="fatturazione 3"></option>
+                <option value="fatturazione 4"></option>
+                <option value="fatturazione 5"></option>
+              </datalist>
+            </div>
+            <div class="field">
+              <label for="temperatura">Temp</label>
+              <div class="radio">
+                <input type="radio" id="20c" name="temperatura" value="20c" />
+                <label for="20c">- 20°c</label><br />
+              </div>
+              <div class="radio">
+                <input type="radio" id="4c" name="temperatura" value="4c" />
+                <label for="4c">+ 4°c</label><br />
+              </div>
+              <div class="radio">
+                <input type="radio" id="420c" name="temperatura" value="420c" />
+                <label for="420c">+ 4/- 20°c</label><br />
+              </div>
+              <div class="radio">
+                <input
+                  type="radio"
+                  id="ambient"
+                  name="temperatura"
+                  value="ambient"
+                />
+                <label for="ambient">ambient</label><br />
+              </div>
+            </div>
+
+            <!-- Carico -->
+            <h2 class="bold fresh">Carico</h2>
+
+            <!-- Carico 1 -->
+            <div class="fullWidth carico" id="carico1">
+              <div class="field">
+                <label for="vettore">Nome</label>
+                <input type="text" list="vettori" name="vettore" id="vettore" />
+                <datalist id="vettori">
+                  <option value="Edge"></option>
+                  <option value="Firefox"></option>
+                  <option value="Chrome"></option>
+                  <option value="Opera"></option>
+                  <option value="Safari"></option>
+                </datalist>
+              </div>
+              <div class="field">
+                <label for="temperatura">Temp</label>
+                <div class="radio">
+                  <input type="radio" id="20c" name="temperatura" value="20c" />
+                  <label for="20c">- 20°c</label><br />
+                </div>
+                <div class="radio">
+                  <input type="radio" id="4c" name="temperatura" value="4c" />
+                  <label for="4c">+ 4°c</label><br />
+                </div>
+                <div class="radio">
+                  <input
+                    type="radio"
+                    id="420c"
+                    name="temperatura"
+                    value="420c"
+                  />
+                  <label for="420c">+ 4/- 20°c</label><br />
+                </div>
+                <div class="radio">
+                  <input
+                    type="radio"
+                    id="ambient"
+                    name="temperatura"
+                    value="ambient"
+                  />
+                  <label for="ambient">ambient</label><br />
+                </div>
+              </div>
+              <div class="field">
+                <label for="birthdaytime">Birthday (date and time):</label>
+                <input
+                  type="datetime-local"
+                  id="birthdaytime"
+                  name="birthdaytime"
+                  value="dd-mm-yyyy 00:00"
+                />
+              </div>
+            </div>
+
+            <!-- Add Carico -->
+            <button type="button" class="fullWidth" onclick="addCarico()">
+              +
+            </button>
+
+            <!-- Scarico -->
+            <h2 class="bold fresh">Scarico</h2>
+
+            <!-- Scarico 1 -->
+            <div class="fullWidth carico" id="scarico1">
+              <div class="field">
+                <label for="vettore">Nome</label>
+                <input type="text" list="vettori" name="vettore" id="vettore" />
+                <datalist id="vettori">
+                  <option value="Edge"></option>
+                  <option value="Firefox"></option>
+                  <option value="Chrome"></option>
+                  <option value="Opera"></option>
+                  <option value="Safari"></option>
+                </datalist>
+              </div>
+              <div class="field">
+                <label for="temperatura">Temp</label>
+                <div class="radio">
+                  <input type="radio" id="20c" name="temperatura" value="20c" />
+                  <label for="20c">- 20°c</label><br />
+                </div>
+                <div class="radio">
+                  <input type="radio" id="4c" name="temperatura" value="4c" />
+                  <label for="4c">+ 4°c</label><br />
+                </div>
+                <div class="radio">
+                  <input
+                    type="radio"
+                    id="420c"
+                    name="temperatura"
+                    value="420c"
+                  />
+                  <label for="420c">+ 4/- 20°c</label><br />
+                </div>
+                <div class="radio">
+                  <input
+                    type="radio"
+                    id="ambient"
+                    name="temperatura"
+                    value="ambient"
+                  />
+                  <label for="ambient">ambient</label><br />
+                </div>
+              </div>
+              <div class="field">
+                <label for="birthdaytime">Birthday (date and time):</label>
+                <input
+                  type="datetime-local"
+                  id="birthdaytime"
+                  name="birthdaytime"
+                  value="dd-mm-yyyy 00:00"
+                />
+              </div>
+            </div>
+
+            <!-- Add Scarico -->
+            <button type="button" class="fullWidth" onclick="addScarico()">
+              +
+            </button>
+
+            <!-- Actions -->
+            <input type="submit" value="Submit" />
+            <input type="reset" />
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="myScript.js"></script>
+  </body>
+</html>

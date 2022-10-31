@@ -1,0 +1,51 @@
+.container {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-inline: auto;
+}
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+}
+nav {
+  width: 100%;
+  height: 5rem;
+  padding: 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav img {
+  max-width: 100%;
+  min-width: 120px;
+  max-height: 100%;
+}
+/* Form */
+.form {
+  margin: 5rem 0;
+  padding: 5rem;
+  border-radius: 1rem;
+}
+form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+form h2 {
+  grid-column: 1/4;
+}
+form .field {
+  display: flex;
+  flex-direction: column;
+}
+.fullWidth {
+  grid-column: 1/4;
+}
+.carico {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}

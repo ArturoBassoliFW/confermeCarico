@@ -1,0 +1,105 @@
+/* VARIABLES */
+
+:root {
+  /* Colors */
+  --fresh: rgb(83, 112, 255);
+  --ways: rgb(42, 43, 66);
+  --zebra: rgb(232, 255, 69);
+  --pale: rgba(83, 112, 255, 0.05);
+  --pure: hwb(0 100% 0%);
+
+  /* Font */
+  --raleway: "Raleway", sans-serif;
+  --crimson: "Crimson Pro", serif;
+  --slim: 400;
+  --fat: 800;
+  --small: 1rem;
+  --regular: 1.2rem;
+  --medium: 1.5rem;
+  --large: 2.5rem;
+  --extraLarge: 3.5rem;
+}
+
+/* COLOR */
+.fresh {
+  color: var(--fresh);
+}
+
+.ways {
+  color: var(--ways);
+}
+
+.zebra {
+  color: var(--zebra);
+}
+
+.pale {
+  color: var(--pale);
+}
+
+.pure {
+  color: var(--pure);
+}
+
+.bg-fresh {
+  background-color: var(--fresh);
+}
+
+.bg-ways {
+  background-color: var(--ways);
+}
+
+.bg-zebra {
+  background-color: var(--zebra);
+}
+
+.bg-pale {
+  background-color: var(--pale);
+}
+
+.bg-pure {
+  background-color: var(--pure);
+}
+
+/* FONT */
+
+body {
+  font-family: var(--crimson);
+  color: var(--ways);
+}
+.bold {
+  font-family: var(--raleway);
+  font-weight: var(--fat);
+}
+
+.small {
+  font-size: var(--small);
+}
+
+.regular {
+  font-size: var(--regular);
+}
+
+.medium {
+  font-size: var(--medium);
+}
+
+.large {
+  font-size: var(--large);
+}
+
+.extraLarge {
+  font-size: var(--extraLarge);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  line-height: 1.1;
+}
