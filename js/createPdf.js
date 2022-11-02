@@ -36,7 +36,7 @@ function makePdf(formData) {
   console.log(numeroC);
   console.log(Object.values(formData)[0]);
 
-  doc.text(Object.values(formData)[0], 10, 10);
+/*   doc.text(Object.values(formData)[0], 10, 10);
   doc.text(Object.values(formData)[1], 10, 20);
   doc.text(Object.values(formData)[2], 10, 30);
   doc.text(Object.values(formData)[3], 10, 40);
@@ -50,7 +50,9 @@ function makePdf(formData) {
   doc.text(Object.values(formData)[11], 10, 120);
   doc.text(Object.values(formData)[12], 10, 130);
   doc.text(Object.values(formData)[13], 10, 140);
-  doc.text(Object.values(formData)[14], 10, 150);
+  doc.text(Object.values(formData)[14], 10, 150); */
+
+  Object.values(formData).forEach((value, index) => doc.text(value, 10, (index+1)*10));
 
   console.log(Object.values(formData)[5] === "Sì");
 
