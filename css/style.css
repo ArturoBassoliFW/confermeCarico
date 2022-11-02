@@ -49,3 +49,10 @@ form .field {
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
+.pltInfo {
+  flex-direction: row !important;
+  gap: 15px;
+}
+.hide {
+  display: none;
+}

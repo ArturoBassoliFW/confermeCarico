@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🇪🇸 Conferme Carico</title>
+
+    <!-- Create PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,10 +16,10 @@
       rel="stylesheet"
     />
     <!-- CSS Reset -->
-    <link rel="stylesheet" href="cssReset.css" />
+    <link rel="stylesheet" href="css/cssReset.css" />
     <!-- CSS -->
-    <link rel="stylesheet" href="variables.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body class="bg-pale">
     <!-- Header -->
@@ -37,7 +40,7 @@
       <div class="container">
         <div class="form bg-pure">
           <!-- Form -->
-          <form action="/action_page.php" method="get">
+          <form id="myForm">
             <!-- Dettagli ordine -->
             <h2 class="bold fresh">Ordine</h2>
             <div class="field">
@@ -102,20 +105,49 @@
                 max="33"
               />
             </div>
-            <div class="field">
-              <label for="tipoPallet">Tipo Plt</label>
-              <div class="radio">
-                <input type="radio" id="epal" name="tipoPallet" value="epal" />
-                <label for="epal">Epal</label><br />
+            <div class="field pltInfo">
+              <div class="tipoPlt">
+                <label for="tipoPallet">Tipo Plt</label>
+                <div class="radio">
+                  <input
+                    type="radio"
+                    id="epal"
+                    name="tipoPallet"
+                    value="epal"
+                    onclick="showScambio()"
+                  />
+                  <label for="epal">Epal</label><br />
+                </div>
+                <div class="radio">
+                  <input
+                    type="radio"
+                    id="uk"
+                    name="tipoPallet"
+                    value="uk"
+                    onclick="hideScambio()"
+                  />
+                  <label for="uk">UK</label><br />
+                </div>
               </div>
-              <div class="radio">
-                <input type="radio" id="uk" name="tipoPallet" value="uk" />
-                <label for="uk">UK</label><br />
+              <div id="scambioPlt" class="scambioPlt hide">
+                <label for="scambioEpal">Scambio Epal</label><br />
+                <input
+                  type="checkbox"
+                  id="scambioEpal"
+                  name="scambioEpal"
+                  value="Sì"
+                />
+                <label for="scambioEpal">Sì</label><br />
               </div>
             </div>
             <div class="field">
-              <label for="carico">Carico per conto di</label>
-              <input type="text" list="carichi" name="carico" id="carico" />
+              <label for="caricoPerContoDi">Carico per conto di</label>
+              <input
+                type="text"
+                list="carichi"
+                name="caricoPerContoDi"
+                id="caricoPerContoDi"
+              />
               <datalist id="carichi">
                 <option value="Carico 1"></option>
                 <option value="Carico 2"></option>
@@ -126,7 +158,7 @@
             </div>
             <div class="field">
               <label for="nolo">Nolo</label>
-              <input type="number" id="nolo" name="nolo" min="1" max="33" />
+              <input type="number" id="nolo" name="nolo" />
             </div>
             <div class="field">
               <label for="fatturazione">Da fatturare a</label>
@@ -145,24 +177,39 @@
               </datalist>
             </div>
             <div class="field">
-              <label for="temperatura">Temp</label>
+              <label for="temperaturaCamion">Temp</label>
               <div class="radio">
-                <input type="radio" id="20c" name="temperatura" value="20c" />
+                <input
+                  type="radio"
+                  id="20c"
+                  name="temperaturaCamion"
+                  value="20c"
+                />
                 <label for="20c">- 20°c</label><br />
               </div>
               <div class="radio">
-                <input type="radio" id="4c" name="temperatura" value="4c" />
+                <input
+                  type="radio"
+                  id="4c"
+                  name="temperaturaCamion"
+                  value="4c"
+                />
                 <label for="4c">+ 4°c</label><br />
               </div>
               <div class="radio">
-                <input type="radio" id="420c" name="temperatura" value="420c" />
+                <input
+                  type="radio"
+                  id="420c"
+                  name="temperaturaCamion"
+                  value="420c"
+                />
                 <label for="420c">+ 4/- 20°c</label><br />
               </div>
               <div class="radio">
                 <input
                   type="radio"
                   id="ambient"
-                  name="temperatura"
+                  name="temperaturaCamion"
                   value="ambient"
                 />
                 <label for="ambient">ambient</label><br />
@@ -175,8 +222,8 @@
             <!-- Carico 1 -->
             <div class="fullWidth carico" id="carico1">
               <div class="field">
-                <label for="vettore">Nome</label>
-                <input type="text" list="vettori" name="vettore" id="vettore" />
+                <label for="nomeC1">Nome</label>
+                <input type="text" list="vettori" name="nomeC1" id="nomeC1" />
                 <datalist id="vettori">
                   <option value="Edge"></option>
                   <option value="Firefox"></option>
@@ -186,20 +233,25 @@
                 </datalist>
               </div>
               <div class="field">
-                <label for="temperatura">Temp</label>
+                <label for="temperaturaC1">Temp</label>
                 <div class="radio">
-                  <input type="radio" id="20c" name="temperatura" value="20c" />
+                  <input
+                    type="radio"
+                    id="20c"
+                    name="temperaturaC1"
+                    value="20c"
+                  />
                   <label for="20c">- 20°c</label><br />
                 </div>
                 <div class="radio">
-                  <input type="radio" id="4c" name="temperatura" value="4c" />
+                  <input type="radio" id="4c" name="temperaturaC1" value="4c" />
                   <label for="4c">+ 4°c</label><br />
                 </div>
                 <div class="radio">
                   <input
                     type="radio"
                     id="420c"
-                    name="temperatura"
+                    name="temperaturaC1"
                     value="420c"
                   />
                   <label for="420c">+ 4/- 20°c</label><br />
@@ -208,18 +260,18 @@
                   <input
                     type="radio"
                     id="ambient"
-                    name="temperatura"
+                    name="temperaturaC1"
                     value="ambient"
                   />
                   <label for="ambient">ambient</label><br />
                 </div>
               </div>
               <div class="field">
-                <label for="birthdaytime">Birthday (date and time):</label>
+                <label for="dataC1">Data Carico</label>
                 <input
                   type="datetime-local"
-                  id="birthdaytime"
-                  name="birthdaytime"
+                  id="dataC1"
+                  name="dataC1"
                   value="dd-mm-yyyy 00:00"
                 />
               </div>
@@ -236,8 +288,8 @@
             <!-- Scarico 1 -->
             <div class="fullWidth carico" id="scarico1">
               <div class="field">
-                <label for="vettore">Nome</label>
-                <input type="text" list="vettori" name="vettore" id="vettore" />
+                <label for="nomeS1">Nome</label>
+                <input type="text" list="vettori" name="nomeS1" id="nomeS1" />
                 <datalist id="vettori">
                   <option value="Edge"></option>
                   <option value="Firefox"></option>
@@ -247,20 +299,25 @@
                 </datalist>
               </div>
               <div class="field">
-                <label for="temperatura">Temp</label>
+                <label for="temperaturaS1">Temp</label>
                 <div class="radio">
-                  <input type="radio" id="20c" name="temperatura" value="20c" />
+                  <input
+                    type="radio"
+                    id="20c"
+                    name="temperaturaS1"
+                    value="20c"
+                  />
                   <label for="20c">- 20°c</label><br />
                 </div>
                 <div class="radio">
-                  <input type="radio" id="4c" name="temperatura" value="4c" />
+                  <input type="radio" id="4c" name="temperaturaS1" value="4c" />
                   <label for="4c">+ 4°c</label><br />
                 </div>
                 <div class="radio">
                   <input
                     type="radio"
                     id="420c"
-                    name="temperatura"
+                    name="temperaturaS1"
                     value="420c"
                   />
                   <label for="420c">+ 4/- 20°c</label><br />
@@ -269,18 +326,18 @@
                   <input
                     type="radio"
                     id="ambient"
-                    name="temperatura"
+                    name="temperaturaS1"
                     value="ambient"
                   />
                   <label for="ambient">ambient</label><br />
                 </div>
               </div>
               <div class="field">
-                <label for="birthdaytime">Birthday (date and time):</label>
+                <label for="dataS1">Data Scarico</label>
                 <input
                   type="datetime-local"
-                  id="birthdaytime"
-                  name="birthdaytime"
+                  id="dataS1"
+                  name="dataS1"
                   value="dd-mm-yyyy 00:00"
                 />
               </div>
@@ -293,12 +350,26 @@
 
             <!-- Actions -->
             <input type="submit" value="Submit" />
-            <input type="reset" />
+            <input
+              type="reset"
+              value="Reset"
+              onClick="window.location.reload()"
+            />
           </form>
         </div>
       </div>
     </main>
 
-    <script src="myScript.js"></script>
+    <!-- Anagrafica -->
+    <script src="js/anagraficaToArray.js"></script>
+    <script>
+      window.onload = caricaAnagrafica();
+    </script>
+    <!-- Scambio EPAL -->
+    <script src="js/scambioEpal.js"></script>
+    <!-- Add Fields -->
+    <script src="js/addFields.js"></script>
+    <!-- Create PDF -->
+    <script src="js/createPdf.js"></script>
   </body>
 </html>

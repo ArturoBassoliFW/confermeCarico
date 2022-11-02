@@ -1,0 +1,32 @@
+/*  - = default values */
+
+Intestazione
+  - Data
+  Vettore
+  Referente
+  - Camion "frigo"
+  Tipo merce (1, 2 ...)
+  Nm plt 1-33
+  Tipo plt
+  scambio
+  - Carico per "Fresh Ways"
+  - Contatti urgenze (per linea)
+  Numero d'ordine rif cliente (facoltativo)
+  Targa camion (facoltativo)
+  Nolo (alphanumerico)
+  - Fatturazione "Fresh Ways codice SDI"
+  Temp
+
+Carico
+  Indirizzo
+  Nm Plt 1-33
+  Temp (Se temp mezzo 4 o 20 default)
+  Data
+
+Scarico
+  Indirizzo
+  Nm Plt 1-33
+  Temp (Se temp mezzo 4 o 20 default)
+  Data
+
+Note
